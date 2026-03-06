@@ -2,7 +2,7 @@ import { Refine, WelcomePage } from "@refinedev/core";
 // import { GitHubBanner } from "@refinedev/core";
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
-import { BookOpen, Home } from "lucide-react"
+import { BookOpen, GraduationCap, Home } from "lucide-react"
 
 import routerProvider, {
   DocumentTitleHandler,
@@ -19,6 +19,10 @@ import Dashboard from "./pages/Dashboard";
 import SubjectList from "./pages/subjects/SubjectList"
 import { Layout } from "./components/refine-ui/layout/layout";
 import CreateSubject from "./pages/subjects/CreateSubject";
+
+import ClassesList from "@/pages/classes/list.tsx";
+import ClassesCreate from "@/pages/classes/create.tsx";
+import ClassesShow from "@/pages/classes/show.tsx";
 
 function App() {
   return (
@@ -47,7 +51,14 @@ function App() {
                   list: "/subjects",
                   create: "/subjects/create",
                   meta: {label: "Subjects", icon: <BookOpen />}
-                }
+                },
+                {
+                     name: 'classes',
+                     list: '/classes',
+                     create: '/classes/create',
+                     show: '/classes/show/:id',
+                     meta: { label: 'Classes', icon: <GraduationCap />}
+                 }
               ]}
             >
               <Routes>
@@ -57,10 +68,18 @@ function App() {
                   </Layout>
                 }>
                   <Route path="/" element={<Dashboard />} />
+                  
                   <Route path="subjects">
                     <Route index element={<SubjectList />} />
                     <Route path="create" element={<CreateSubject />} />
                   </Route>
+
+                  <Route path="classes">
+                    <Route index element={<ClassesList />} />
+                    <Route path="create" element={<ClassesCreate />} />
+                    <Route path="show/:id" element={<ClassesShow />} />
+                  </Route>
+
                 </Route>
               </Routes>
               <Toaster />
