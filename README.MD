@@ -110,7 +110,7 @@ Make sure you have the following installed on your machine:
 
 ```bash
 git clone https://github.com/Ebikemeese/University-Management-System.git
-cd classroom-frontend
+cd frontend/ums
 ```
 
 **Installation**
@@ -127,12 +127,14 @@ Create a new file named `.env` in the root of your project and add the following
 
 ```env
 # Backend
-VITE_BACKEND_BASE_URL="http://localhost:8000/api/"
+VITE_BACKEND_BASE_URL=
 
-# Cloudinary
+VITE_ACCESS_TOKEN_KEY=
+VITE_REFRESH_TOKEN_KEY=
+
 VITE_CLOUDINARY_CLOUD_NAME=
-VITE_CLOUDINARY_UPLOAD_PRESET=
 VITE_CLOUDINARY_UPLOAD_URL=
+VITE_CLOUDINARY_UPLOAD_PRESET=
 ```
 
 Replace the placeholder values with your real credentials. You can get these by signing up at: [**Cloudinary**](https://jsm.dev/pern-cloudinary).
